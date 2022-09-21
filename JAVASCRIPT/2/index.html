@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p
+        {
+            padding: 2rem;
+            background-color: aqua;
+        }
+        .change-color
+        {
+            cursor: pointer;
+
+            font-size: 1rem;
+        }
+        button
+        {
+            padding: 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p class="change-text" onmouseover="changeText()">
+    Mouse over it to change the the text
+    </p>
+    <p class="change-color" onclick="changeColor()">
+    Click Me to change color to Pink
+    </p>
+    <button class="delete-tag" onclick="deleteTag()">
+    Click this button to remove it
+    </button><br>
+    <button class="insert-tag" onclick="insertTag()">Click this To insert new tag</button>
+    <script>
+        function changeText()
+        {
+            var p1=document.getElementsByClassName("change-text")[0];
+            p1.innerHTML="You hover the mouse over me"
+        }
+        function changeColor()
+        {
+            var p2=document.getElementsByClassName("change-color")[0];
+            p2.style.color="deeppink"
+            p2.style.fontSize="2rem"
+            p2.innerHTML="My color is Changed"
+        }
+        function deleteTag()
+        {
+            var p3=document.getElementsByClassName("delete-tag")[0];
+            p3.remove();
+        }
+        function insertTag()
+        {
+            var p4=document.getElementsByClassName("insert-tag")[0];
+            var node=document.createElement("p");
+            var textNode=document.createTextNode("I am new tag")
+            node.appendChild(textNode)
+            var body=document.getElementsByTagName("body")[0]
+            body.appendChild(node)
+        }
+        
+    </script>
+</body>
+</html>
